@@ -92,15 +92,19 @@ body {
 .photo-item:nth-child(5) { transform: rotateY(240deg) translateZ(150px); }
 .photo-item:nth-child(6) { transform: rotateY(300deg) translateZ(150px); }
 
-/* Khi hover, tăng kích thước nhẹ */
+/* Hiệu ứng hover tăng nhẹ kích thước */
 .photo-item:hover {
   transform: scale(1.2);
 }
 
-/* Khi ảnh được phóng to (click), override transform và dừng hiệu ứng hover */
+/* Khi ảnh được phóng to: đưa ảnh ra giữa màn hình, loại bỏ mọi hiệu ứng 3D của cube */
 .photo-item.enlarged {
-  transform: scale(2) !important;
-  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* Đưa ảnh về giữa màn hình, đồng thời phóng to */
+  transform: translate(-50%, -50%) scale(2) !important;
+  z-index: 1000;
 }
 
 /* Animation quay của cube */
