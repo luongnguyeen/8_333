@@ -92,10 +92,18 @@ body {
 .photo-item:nth-child(5) { transform: rotateY(240deg) translateZ(150px); }
 .photo-item:nth-child(6) { transform: rotateY(300deg) translateZ(150px); }
 
+/* Khi hover, tăng kích thước nhẹ */
 .photo-item:hover {
   transform: scale(1.2);
 }
 
+/* Khi ảnh được phóng to (click), override transform và dừng hiệu ứng hover */
+.photo-item.enlarged {
+  transform: scale(2) !important;
+  z-index: 10;
+}
+
+/* Animation quay của cube */
 @keyframes rotateCube {
   from { transform: rotateY(0deg); }
   to { transform: rotateY(360deg); }
@@ -133,34 +141,6 @@ footer {
 
 .final-message p {
   font-size: 1.2rem;
-}
-
-/* Modal hiển thị ảnh */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-}
-
-.modal-content {
-  max-width: 90%;
-  max-height: 80%;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 3rem;
-  color: #fff;
-  cursor: pointer;
 }
 
 /* Responsive cho màn hình nhỏ */
