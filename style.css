@@ -1,0 +1,186 @@
+/* style.css */
+
+/* Reset và cấu hình toàn cục */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FFC0CB; /* nền hồng */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Các khung giao diện chung */
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+/* Start Screen */
+.heart-container {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+#heart-svg {
+  width: 100%;
+  height: 100%;
+  fill: #e74c3c;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.start-text {
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Lời chúc gõ chữ */
+.greeting-text {
+  font-size: 1.5rem;
+  padding: 20px;
+  min-height: 100px;
+}
+
+/* Box ảnh 3D */
+.photo-box {
+  perspective: 1000px;
+  margin: 40px 0;
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 10s infinite linear;
+}
+
+.photo-item {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+/* Sắp xếp các ảnh quanh trục theo hiệu ứng 3D */
+.photo-item:nth-child(1) { transform: rotateY(0deg) translateZ(150px); }
+.photo-item:nth-child(2) { transform: rotateY(60deg) translateZ(150px); }
+.photo-item:nth-child(3) { transform: rotateY(120deg) translateZ(150px); }
+.photo-item:nth-child(4) { transform: rotateY(180deg) translateZ(150px); }
+.photo-item:nth-child(5) { transform: rotateY(240deg) translateZ(150px); }
+.photo-item:nth-child(6) { transform: rotateY(300deg) translateZ(150px); }
+
+.photo-item:hover {
+  transform: scale(1.2);
+}
+
+@keyframes rotateCube {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+/* Nút chuyển giao diện */
+.next-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+.next-button:hover {
+  background-color: #c0392b;
+}
+
+/* Footer */
+footer {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 20px;
+}
+
+/* Final Screen */
+.final-message h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.final-message p {
+  font-size: 1.2rem;
+}
+
+/* Modal hiển thị ảnh */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 80%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 600px) {
+  .heart-container {
+    width: 100px;
+    height: 100px;
+  }
+  .greeting-text {
+    font-size: 1.2rem;
+  }
+  .next-button {
+    font-size: 1rem;
+  }
+  .photo-box {
+    width: 250px;
+    height: 250px;
+  }
+  .photo-item {
+    width: 80px;
+    height: 80px;
+  }
+}
