@@ -45,18 +45,16 @@ document.addEventListener("DOMContentLoaded", function() {
   
   photos.forEach(photo => {
     photo.addEventListener("click", function(event) {
-      event.stopPropagation(); // ngăn không cho sự kiện lan ra ngoài
-      if (!enlargedImage) {
-        // Phóng to ảnh được chọn
-        enlargedImage = this;
-        this.classList.add("enlarged");
-        // Dừng animation quay của cube
-        cube.style.animationPlayState = "paused";
-      }
+      event.stopPropagation(); // ngăn sự kiện lan ra ngoài
+      if (enlargedImage) return; // nếu đã có ảnh được phóng to thì không làm gì thêm
+      enlargedImage = this;
+      this.classList.add("enlarged");
+      // Dừng animation quay của cube
+      cube.style.animationPlayState = "paused";
     });
   });
   
-  // Khi chạm vào bất kỳ vị trí nào khác, thu nhỏ ảnh nếu đã phóng to và tiếp tục quay cube
+  // Khi chạm vào bất kỳ vị trí nào ngoài ảnh đã phóng to, thu nhỏ lại ảnh và khôi phục quay cube
   document.addEventListener("click", function() {
     if (enlargedImage) {
       enlargedImage.classList.remove("enlarged");
