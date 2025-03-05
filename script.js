@@ -8,9 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const greetingTextElem = document.getElementById("greeting-text");
   const photoBox = document.getElementById("photo-box");
   const nextButton = document.getElementById("next-button");
-  const modal = document.getElementById("modal");
-  const modalImg = document.getElementById("modal-img");
-  const modalClose = document.getElementById("modal-close");
+  const cube = document.querySelector(".cube");
   
   // Lời chúc sẽ được hiển thị theo kiểu gõ chữ
   const greetingMessage = "Chúc em ngày 8/3 thật vui vẻ, tràn đầy yêu thương và hạnh phúc. Hy vọng ngày hôm nay sẽ là một ngày đặc biệt với những nụ cười và niềm vui.";
@@ -41,18 +39,30 @@ document.addEventListener("DOMContentLoaded", function() {
   heartContainer.addEventListener("click", goToGreetingScreen);
   startText.addEventListener("click", goToGreetingScreen);
   
-  // Xử lý sự kiện click vào ảnh trong box ảnh (hiển thị modal)
+  // Xử lý sự kiện click vào ảnh trong box ảnh: phóng to ảnh và dừng quay cube
   const photos = document.querySelectorAll(".photo-item");
+  let enlargedImage = null;
+  
   photos.forEach(photo => {
-    photo.addEventListener("click", function() {
-      modal.style.display = "flex";
-      modalImg.src = this.src;
+    photo.addEventListener("click", function(event) {
+      event.stopPropagation(); // ngăn không cho sự kiện lan ra ngoài
+      if (!enlargedImage) {
+        // Phóng to ảnh được chọn
+        enlargedImage = this;
+        this.classList.add("enlarged");
+        // Dừng animation quay của cube
+        cube.style.animationPlayState = "paused";
+      }
     });
   });
   
-  // Đóng modal khi click vào nút close
-  modalClose.addEventListener("click", function() {
-    modal.style.display = "none";
+  // Khi chạm vào bất kỳ vị trí nào khác, thu nhỏ ảnh nếu đã phóng to và tiếp tục quay cube
+  document.addEventListener("click", function() {
+    if (enlargedImage) {
+      enlargedImage.classList.remove("enlarged");
+      enlargedImage = null;
+      cube.style.animationPlayState = "running";
+    }
   });
   
   // Chuyển sang Final Screen khi nhấn nút "Tiếp tục"
