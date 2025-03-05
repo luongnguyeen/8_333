@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Women's Day</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Start Screen -->
+  <div id="start-screen" class="screen">
+    <div class="heart-container" id="heart-container">
+      <!-- SVG heart với hiệu ứng đập -->
+      <svg id="heart-svg" viewBox="0 0 32 29.6">
+        <path d="M23.6,0c-3.4,0-6.4,1.9-8,4.7C13.8,1.9,10.8,0,7.4,0C3.3,0,0,3.3,0,7.4c0,4.5,3.4,8.2,8.6,12.3l7,6.1l7-6.1
+          C28.6,15.6,32,11.9,32,7.4C32,3.3,28.7,0,23.6,0z"/>
+      </svg>
+    </div>
+    <div id="start-text" class="start-text">Cùng khám phá Emmm nhé</div>
+  </div>
+
+  <!-- Greeting Screen -->
+  <div id="greeting-screen" class="screen" style="display:none;">
+    <!-- Hiệu ứng gõ chữ cho lời chúc -->
+    <div id="greeting-text" class="greeting-text"></div>
+    
+    <!-- Box ảnh 3D -->
+    <div id="photo-box" class="photo-box">
+      <div class="cube">
+        <img src="img1.jpg" class="photo-item" alt="Ảnh 1">
+        <img src="img2.jpg" class="photo-item" alt="Ảnh 2">
+        <img src="img3.jpg" class="photo-item" alt="Ảnh 3">
+        <img src="img4.jpg" class="photo-item" alt="Ảnh 4">
+        <img src="img5.jpg" class="photo-item" alt="Ảnh 5">
+        <img src="img6.jpg" class="photo-item" alt="Ảnh 6">
+      </div>
+    </div>
+    
+    <!-- Nút chuyển giao diện -->
+    <button id="next-button" class="next-button">Tiếp tục</button>
+    <footer id="footer">Made by 💓 L.Nguyeen</footer>
+  </div>
+
+  <!-- Final Screen -->
+  <div id="final-screen" class="screen" style="display:none;">
+    <div class="final-message">
+      <h1>Chúc mừng Ngày Quốc tế Phụ nữ!</h1>
+      <p>Chúc em luôn xinh đẹp và hạnh phúc!</p>
+    </div>
+    <footer id="footer-final">Made by 💓 L.Nguyeen</footer>
+  </div>
+
+  <!-- Modal hiển thị ảnh khi click vào box ảnh -->
+  <div id="modal" class="modal" style="display:none;">
+    <span class="close" id="modal-close">&times;</span>
+    <img class="modal-content" id="modal-img">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
