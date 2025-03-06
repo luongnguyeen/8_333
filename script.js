@@ -19,18 +19,19 @@ document.addEventListener("DOMContentLoaded", function() {
   nextButton.style.display = "none";
   
   // Hàm gõ chữ
-  function typeGreeting() {
-    if (index < greetingMessage.length) {
-      greetingTextElem.innerHTML += greetingMessage.charAt(index);
-      index++;
-      setTimeout(typeGreeting, 30); // tốc độ gõ chữ (ms)
-    } else {
-      // Sau khi gõ xong, hiển thị box ảnh 3D
-      photoBox.style.display = "block";
-      nextButton.style.display = "block";
-    }
+function typeGreeting() {
+  if (index <= greetingMessage.length) {
+    // Hiển thị đoạn văn bản đã gõ cộng thêm dấu gạch dưới nhấp nháy
+    greetingTextElem.innerHTML = greetingMessage.substring(0, index) + '<span class="cursor">_</span>';
+    index++;
+    setTimeout(typeGreeting, 50); // tốc độ gõ chữ (ms)
+  } else {
+    // Sau khi gõ xong, xóa cursor và hiển thị box ảnh & nút "Tiếp tục"
+    greetingTextElem.innerHTML = greetingMessage;
+    photoBox.style.display = "block";
+    nextButton.style.display = "block";
   }
-  
+}
   // Hàm chuyển từ Start Screen sang Greeting Screen
   function goToGreetingScreen() {
     startScreen.style.display = "none";
