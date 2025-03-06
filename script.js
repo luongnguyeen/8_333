@@ -14,18 +14,20 @@ document.addEventListener("DOMContentLoaded", function() {
   const greetingMessage = "Chúc em ngày 8/3 thật vui vẻ, tràn đầy yêu thương và hạnh phúc. Hy vọng ngày hôm nay sẽ là một ngày đặc biệt với những nụ cười và niềm vui.";
   let index = 0;
   
-  // Ẩn box ảnh ban đầu
+  // Ẩn box ảnh, nút next ban đầu
   photoBox.style.display = "none";
+  nextButton.style.display = "none";
   
   // Hàm gõ chữ
   function typeGreeting() {
     if (index < greetingMessage.length) {
       greetingTextElem.innerHTML += greetingMessage.charAt(index);
       index++;
-      setTimeout(typeGreeting, 50); // tốc độ gõ chữ (ms)
+      setTimeout(typeGreeting, 30); // tốc độ gõ chữ (ms)
     } else {
       // Sau khi gõ xong, hiển thị box ảnh 3D
       photoBox.style.display = "block";
+      nextButton.style.display = "block";
     }
   }
   
