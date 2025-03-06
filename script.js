@@ -7,12 +7,18 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   const startScreen = document.getElementById("start-screen");
   const greetingScreen = document.getElementById("greeting-screen");
+  const photoScreen = document.getElementById("photo-screen");
   const finalScreen = document.getElementById("final-screen");
+  
   const heartContainer = document.getElementById("heart-container");
   const startText = document.getElementById("start-text");
+  
   const greetingTextElem = document.getElementById("greeting-text");
+  const bouquet = document.getElementById("bouquet");
+  const greetingNextButton = document.getElementById("greeting-next-button");
+  
   const photoBox = document.getElementById("photo-box");
-  const nextButton = document.getElementById("next-button");
+  const photoNextButton = document.getElementById("photo-next-button");
   const cube = document.querySelector(".cube");
   
   // Lời chúc được hiển thị theo kiểu gõ chữ
@@ -20,8 +26,9 @@ document.addEventListener("DOMContentLoaded", function() {
   let index = 0;
   
   // Ẩn box ảnh, nút next ban đầu
-  photoBox.style.display = "none";
-  nextButton.style.display = "none";
+ greetingScreen.style.display = "none";
+  photoScreen.style.display = "none";
+  finalScreen.style.display = "none";
   
   // Hàm gõ chữ
 function typeGreeting() {
@@ -33,8 +40,8 @@ function typeGreeting() {
   } else {
     // Sau khi gõ xong, xóa cursor và hiển thị box ảnh & nút "Tiếp tục"
     greetingTextElem.innerHTML = greetingMessage;
-    photoBox.style.display = "block";
-    nextButton.style.display = "block";
+    bouquet.style.display = "block";
+    greetingNextButton.style.display = "block";
   }
 }
   // Hàm chuyển từ Start Screen sang Greeting Screen
@@ -46,6 +53,13 @@ function typeGreeting() {
   
   heartContainer.addEventListener("click", goToGreetingScreen);
   startText.addEventListener("click", goToGreetingScreen);
+
+// Khi nhấn nút "Tiếp tục" ở màn hình lời chúc, chuyển sang màn hình box ảnh
+  greetingNextButton.addEventListener("click", function() {
+    greetingScreen.style.display = "none";
+     photoScreen.style.display = "flex";
+ });
+  
   
   // Xử lý sự kiện click vào ảnh: tạo overlay chứa ảnh phóng to
   const photos = document.querySelectorAll(".photo-item");
@@ -81,7 +95,7 @@ function typeGreeting() {
   
   // Chuyển sang Final Screen khi nhấn nút "Tiếp tục"
   nextButton.addEventListener("click", function() {
-    greetingScreen.style.display = "none";
+    photoScreen.style.display = "none";
     finalScreen.style.display = "flex";
   });
 });
