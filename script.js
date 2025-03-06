@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", function() {
       // Tạo phần tử ảnh với src giống ảnh được click
       const enlargedImg = document.createElement("img");
       enlargedImg.src = this.src;
+      enlargedImg.style.maxWidth = "60vw"; // Giảm kích thước ảnh phóng to
+      enlargedImg.style.maxHeight = "60vh";
       enlargedOverlay.appendChild(enlargedImg);
       document.body.appendChild(enlargedOverlay);
       // Dừng animation quay của cube
