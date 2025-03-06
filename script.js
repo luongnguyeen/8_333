@@ -59,21 +59,26 @@ document.addEventListener("DOMContentLoaded", function() {
   const photos = document.querySelectorAll(".photo-item");
   let enlargedOverlay = null;
   
-  photos.forEach(photo => {
+ photos.forEach(photo => {
     photo.addEventListener("click", function(event) {
-      event.stopPropagation();
-      if (enlargedOverlay) return;
+      event.stopPropagation(); // ngăn click lan ra ngoài
+      if (enlargedOverlay) return; // nếu đã có overlay thì không làm gì
+      // Tạo overlay
       enlargedOverlay = document.createElement("div");
       enlargedOverlay.classList.add("enlarged-overlay");
+      // Tạo phần tử ảnh với src giống ảnh được click
       const enlargedImg = document.createElement("img");
       enlargedImg.src = this.src;
+      enlargedImg.style.maxWidth = "30vw"; // Giảm kích thước ảnh phóng to
+      enlargedImg.style.maxHeight = "30vh";
       enlargedOverlay.appendChild(enlargedImg);
       document.body.appendChild(enlargedOverlay);
+      // Dừng animation quay của cube
       cube.style.animationPlayState = "paused";
     });
   });
   
-  // Khi click vào bất kỳ nơi nào ngoài overlay, ẩn overlay và khôi phục animation quay của cube
+  // Khi click vào bất kỳ nơi nào ngoài overlay, thu nhỏ ảnh và khôi phục cube quay
   document.addEventListener("click", function() {
     if (enlargedOverlay) {
       document.body.removeChild(enlargedOverlay);
