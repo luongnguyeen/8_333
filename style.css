@@ -97,13 +97,13 @@ body {
   transform: scale(1.2);
 }
 
-/* Khi ảnh được phóng to: đưa ảnh ra giữa màn hình, loại bỏ mọi hiệu ứng 3D của cube */
+/* Khi ảnh được click, xoay sao cho mặt ảnh song song với màn hình và phóng to */
 .photo-item.enlarged {
   position: fixed;
   top: 50%;
   left: 50%;
-  /* Đưa ảnh về giữa màn hình, đồng thời phóng to */
-  transform: translate(-50%, -50%) scale(2) !important;
+  /* Dịch chuyển ra giữa màn hình, xoay về mặt trước (rotateY(0deg)) và phóng to */
+  transform: translate(-50%, -50%) rotateY(0deg) scale(2) !important;
   z-index: 1000;
 }
 
