@@ -13,15 +13,22 @@
     <div class="giftbox-container" id="heart-container">
       <img src="giftbox.png" alt="Hộp quà tặng bí mật" class="giftbox-image">
     </div>
-    <div id="start-text" class="start-text">Emmm hãy nhấn vào hộp quà để cùng khám phá nhé</div>
+    <div id="start-text" class="start-text">Cùng khám phá Emmm nhé</div>
   </div>
 
   <!-- Greeting Screen -->
   <div id="greeting-screen" class="screen" style="display:none;">
-    <!-- Hiệu ứng gõ chữ cho lời chúc -->
     <div id="greeting-text" class="greeting-text"></div>
-    
-    <!-- Box ảnh 3D -->
+    <!-- Bó hoa sẽ hiển thị bên dưới lời chúc sau khi gõ xong -->
+    <div id="bouquet" class="bouquet" style="display:none;">
+      <img src="bouquet.jpg" alt="Bó hoa" class="bouquet-image">
+    </div>
+    <button id="greeting-next-button" class="next-button" style="display:none;">Tiếp tục</button>
+    <footer>Made by 💓 L.Nguyeen</footer>
+  </div>
+
+  <!-- Photo Screen -->
+  <div id="photo-screen" class="screen" style="display:none;">
     <div id="photo-box" class="photo-box">
       <div class="cube">
         <img src="img1.jpg" class="photo-item" alt="Ảnh 1">
@@ -32,10 +39,8 @@
         <img src="img6.jpg" class="photo-item" alt="Ảnh 6">
       </div>
     </div>
-    
-    <!-- Nút chuyển giao diện -->
-    <button id="next-button" class="next-button">Tiếp tục</button>
-    <footer id="footer">Made by 💓 L.Nguyeen</footer>
+    <button id="photo-next-button" class="next-button">Tiếp tục</button>
+    <footer>Made by 💓 L.Nguyeen</footer>
   </div>
 
   <!-- Final Screen -->
@@ -44,15 +49,9 @@
       <h1>Chúc mừng Ngày Quốc tế Phụ nữ!</h1>
       <p>Chúc em luôn xinh đẹp và hạnh phúc!</p>
     </div>
-    <footer id="footer-final">Made by 💓 L.Nguyeen</footer>
+    <footer>Made by 💓 L.Nguyeen</footer>
   </div>
 
-  <!-- Modal hiển thị ảnh khi click vào box ảnh -->
-  <div id="modal" class="modal" style="display:none;">
-    <span class="close" id="modal-close">&times;</span>
-    <img class="modal-content" id="modal-img">
-  </div>
-
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
