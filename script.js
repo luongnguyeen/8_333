@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const nextButton = document.getElementById("next-button");
   const cube = document.querySelector(".cube");
   
-  // Lời chúc sẽ được hiển thị theo kiểu gõ chữ
+  // Lời chúc được hiển thị theo kiểu gõ chữ
   const greetingMessage = "Chúc em ngày 8/3 thật vui vẻ, tràn đầy yêu thương và hạnh phúc. Hy vọng ngày hôm nay sẽ là một ngày đặc biệt với những nụ cười và niềm vui.";
   let index = 0;
   
@@ -39,26 +39,32 @@ document.addEventListener("DOMContentLoaded", function() {
   heartContainer.addEventListener("click", goToGreetingScreen);
   startText.addEventListener("click", goToGreetingScreen);
   
-  // Xử lý sự kiện click vào ảnh trong box ảnh: xoay về mặt trước và phóng to ảnh, dừng quay cube
+  // Xử lý sự kiện click vào ảnh: tạo overlay chứa ảnh phóng to
   const photos = document.querySelectorAll(".photo-item");
-  let enlargedImage = null;
+  let enlargedOverlay = null;
   
   photos.forEach(photo => {
     photo.addEventListener("click", function(event) {
-      event.stopPropagation(); // ngăn sự kiện click lan ra ngoài
-      if (enlargedImage) return; // nếu đã có ảnh phóng to thì không làm gì thêm
-      enlargedImage = this;
-      this.classList.add("enlarged");
+      event.stopPropagation(); // ngăn click lan ra ngoài
+      if (enlargedOverlay) return; // nếu đã có overlay thì không làm gì
+      // Tạo overlay
+      enlargedOverlay = document.createElement("div");
+      enlargedOverlay.classList.add("enlarged-overlay");
+      // Tạo phần tử ảnh với src giống ảnh được click
+      const enlargedImg = document.createElement("img");
+      enlargedImg.src = this.src;
+      enlargedOverlay.appendChild(enlargedImg);
+      document.body.appendChild(enlargedOverlay);
       // Dừng animation quay của cube
       cube.style.animationPlayState = "paused";
     });
   });
   
-  // Khi click vào bất kỳ vị trí nào ngoài ảnh đã phóng to, thu nhỏ lại ảnh và khôi phục quay cube
+  // Khi click vào bất kỳ nơi nào ngoài overlay, thu nhỏ ảnh và khôi phục cube quay
   document.addEventListener("click", function() {
-    if (enlargedImage) {
-      enlargedImage.classList.remove("enlarged");
-      enlargedImage = null;
+    if (enlargedOverlay) {
+      document.body.removeChild(enlargedOverlay);
+      enlargedOverlay = null;
       cube.style.animationPlayState = "running";
     }
   });
