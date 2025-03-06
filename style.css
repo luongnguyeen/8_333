@@ -114,6 +114,8 @@ body {
   transform: translate(-50%, -50%) rotateY(0deg) scale(2);
   max-width: 90%;
   max-height: 90%;
+  border: 5px solid #fff;      /* Viền trắng dày 5px */
+  border-radius: 15px;         /* Bo tròn các góc */
 }
 
 /* Animation quay của cube */
