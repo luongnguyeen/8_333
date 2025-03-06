@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
+  // Lấy các phần tử cần thiết
+  const imageUrls = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg"];
+  imageUrls.forEach(url => {
+    const img = new Image();
+    img.src = url;
+  });
   const startScreen = document.getElementById("start-screen");
   const greetingScreen = document.getElementById("greeting-screen");
   const finalScreen = document.getElementById("final-screen");
@@ -17,43 +23,20 @@ document.addEventListener("DOMContentLoaded", function() {
   photoBox.style.display = "none";
   nextButton.style.display = "none";
   
-// Mảng chứa đường dẫn các ảnh trong photo box
-  const imageUrls = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg"];
-
-  // Hàm preload ảnh: tạo đối tượng Image cho từng ảnh và đợi load xong
-  function preloadImages(urls) {
-    return Promise.all(urls.map(url => new Promise((resolve, reject) => {
-      const img = new Image();
-      img.onload = () => resolve(url);
-      img.onerror = reject;
-      img.src = url;
-    })));
-  }
-  
   // Hàm gõ chữ
 function typeGreeting() {
   if (index <= greetingMessage.length) {
     // Hiển thị đoạn văn bản đã gõ cộng thêm dấu gạch dưới nhấp nháy
     greetingTextElem.innerHTML = greetingMessage.substring(0, index) + '<span class="cursor">_</span>';
     index++;
-    setTimeout(typeGreeting, 50); // tốc độ gõ chữ (ms)
+    setTimeout(typeGreeting, 40); // tốc độ gõ chữ (ms)
   } else {
     // Sau khi gõ xong, xóa cursor và hiển thị box ảnh & nút "Tiếp tục"
     greetingTextElem.innerHTML = greetingMessage;
-   // Preload ảnh trước khi hiển thị box ảnh
-      preloadImages(imageUrls)
-        .then(() => {
-          photoBox.style.display = "block";
-          nextButton.style.display = "block";
-        })
-        .catch((err) => {
-          console.error("Error preloading images", err);
-          // Nếu có lỗi, vẫn hiển thị box ảnh (có thể thiếu ảnh)
-          photoBox.style.display = "block";
-          nextButton.style.display = "block";
-        });
-    }
+    photoBox.style.display = "block";
+    nextButton.style.display = "block";
   }
+}
   // Hàm chuyển từ Start Screen sang Greeting Screen
   function goToGreetingScreen() {
     startScreen.style.display = "none";
