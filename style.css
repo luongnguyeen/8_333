@@ -61,6 +61,16 @@ body {
   padding: 5px;
   min-height: 100px;
 }
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
 
 /* Box ảnh 3D */
 .photo-box {
