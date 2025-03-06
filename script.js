@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
   // Lấy các phần tử cần thiết
+  const imageUrls = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg"];
+  imageUrls.forEach(url => {
+    const img = new Image();
+    img.src = url;
+  });
   const startScreen = document.getElementById("start-screen");
   const greetingScreen = document.getElementById("greeting-screen");
   const finalScreen = document.getElementById("final-screen");
