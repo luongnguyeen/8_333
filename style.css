@@ -1,3 +1,5 @@
+/* style.css */
+
 /* Reset và cấu hình toàn cục */
 * {
   margin: 0;
@@ -19,10 +21,16 @@ body {
   justify-content: center;
   height: 100vh;
   text-align: center;
-  position: relative;
 }
 
 /* Start Screen */
+.heart-container {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
 .giftbox-container {
   width: 150px;
   height: 150px;
@@ -36,19 +44,23 @@ body {
   object-fit: contain;
 }
 
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
 .start-text {
   font-size: 1.5rem;
   color: #333;
   cursor: pointer;
 }
 
-/* Greeting Text with blinking cursor */
+/* Lời chúc gõ chữ */
 .greeting-text {
   font-size: 1.5rem;
-  padding: 20px;
+  padding: 5px;
   min-height: 100px;
 }
-
 .cursor {
   display: inline-block;
   margin-left: 2px;
@@ -59,8 +71,6 @@ body {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
-
-/* Bouquet style */
 .bouquet {
   margin-top: 20px;
 }
@@ -71,7 +81,8 @@ body {
   border-radius: 10px;
 }
 
-/* Photo Box 3D */
+
+/* Box ảnh 3D */
 .photo-box {
   perspective: 1000px;
   margin: 40px 0;
@@ -85,7 +96,7 @@ body {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  animation: rotateCube 20s infinite linear;  /* Bạn có thể điều chỉnh tốc độ quay ở đây */
+  animation: rotateCube 30s infinite linear;
 }
 
 .photo-item {
@@ -107,6 +118,7 @@ body {
 .photo-item:nth-child(5) { transform: rotateY(240deg) translateZ(150px); }
 .photo-item:nth-child(6) { transform: rotateY(300deg) translateZ(150px); }
 
+/* Hiệu ứng hover tăng nhẹ kích thước */
 .photo-item:hover {
   transform: scale(1.2);
 }
@@ -126,10 +138,16 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotateY(0deg) scale(2);
-  max-width: 60vw;
-  max-height: 60vh;
-  border: 5px solid #fff;
-  border-radius: 15px;
+  max-width: 90%;
+  max-height: 90%;
+  border: 2px solid #fff;      /* Viền trắng dày 5px */
+  border-radius: 5px;         /* Bo tròn các góc */
+}
+
+/* Animation quay của cube */
+@keyframes rotateCube {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
 }
 
 /* Nút chuyển giao diện */
@@ -141,7 +159,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 20px;
+  margin-bottom: 20px;
   transition: background-color 0.3s;
 }
 
@@ -168,7 +186,11 @@ footer {
 
 /* Responsive cho màn hình nhỏ */
 @media (max-width: 600px) {
-  .giftbox-container {
+.giftbox-container {
+    width: 100px;
+    height: 100px;
+  }
+  .heart-container {
     width: 100px;
     height: 100px;
   }
