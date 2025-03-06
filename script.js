@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
       index++;
       setTimeout(typeGreeting, 50); // tốc độ gõ chữ (ms)
     } else {
-      // Sau khi gõ chữ xong, hiển thị box ảnh 3D
+      // Sau khi gõ xong, hiển thị box ảnh 3D
       photoBox.style.display = "block";
     }
   }
@@ -39,14 +39,14 @@ document.addEventListener("DOMContentLoaded", function() {
   heartContainer.addEventListener("click", goToGreetingScreen);
   startText.addEventListener("click", goToGreetingScreen);
   
-  // Xử lý sự kiện click vào ảnh trong box ảnh: phóng to ảnh và dừng quay cube
+  // Xử lý sự kiện click vào ảnh trong box ảnh: xoay về mặt trước và phóng to ảnh, dừng quay cube
   const photos = document.querySelectorAll(".photo-item");
   let enlargedImage = null;
   
   photos.forEach(photo => {
     photo.addEventListener("click", function(event) {
-      event.stopPropagation(); // ngăn sự kiện lan ra ngoài
-      if (enlargedImage) return; // nếu đã có ảnh được phóng to thì không làm gì thêm
+      event.stopPropagation(); // ngăn sự kiện click lan ra ngoài
+      if (enlargedImage) return; // nếu đã có ảnh phóng to thì không làm gì thêm
       enlargedImage = this;
       this.classList.add("enlarged");
       // Dừng animation quay của cube
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
   
-  // Khi chạm vào bất kỳ vị trí nào ngoài ảnh đã phóng to, thu nhỏ lại ảnh và khôi phục quay cube
+  // Khi click vào bất kỳ vị trí nào ngoài ảnh đã phóng to, thu nhỏ lại ảnh và khôi phục quay cube
   document.addEventListener("click", function() {
     if (enlargedImage) {
       enlargedImage.classList.remove("enlarged");
