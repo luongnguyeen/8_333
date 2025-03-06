@@ -97,14 +97,23 @@ body {
   transform: scale(1.2);
 }
 
-/* Khi ảnh được click, xoay sao cho mặt ảnh song song với màn hình và phóng to */
-.photo-item.enlarged {
+/* Overlay chứa ảnh phóng to */
+.enlarged-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.enlarged-overlay img {
   position: fixed;
   top: 50%;
   left: 50%;
-  /* Dịch chuyển ra giữa màn hình, xoay về mặt trước (rotateY(0deg)) và phóng to */
-  transform: translate(-50%, -50%) rotateY(0deg) scale(2) !important;
-  z-index: 1000;
+  transform: translate(-50%, -50%) rotateY(0deg) scale(2);
+  max-width: 90%;
+  max-height: 90%;
 }
 
 /* Animation quay của cube */
