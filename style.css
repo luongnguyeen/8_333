@@ -172,7 +172,11 @@ body {
   margin-bottom: 20px;
   transition: background-color 0.3s;
 }
-
+#photo-next-button {
+  width: 20vw;
+  max-width: 100px;
+  height: auto;
+}
 .next-button:hover {
   background-color: #c0392b;
 }
@@ -218,4 +222,8 @@ footer {
     width: 80px;
     height: 80px;
   }
+#photo-next-button {
+    width: 70px;
+  }
+  
 }
