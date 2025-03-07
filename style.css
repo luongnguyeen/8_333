@@ -179,7 +179,7 @@ body {
   background-color: #e74c3c;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 2px;
   cursor: pointer;
   margin-top: 20px;
   transition: background-color 0.3s;
@@ -190,6 +190,7 @@ body {
 }
 #photo-next-button {
   display: block;
+  width: 20vw;
   max-width: 100px;
   height: auto;
   cursor: pointer;
