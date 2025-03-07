@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (index <= greetingMessage.length) {
       greetingTextElem.innerHTML = greetingMessage.substring(0, index) + '<span class="cursor">_</span>';
       index++;
-      setTimeout(typeGreeting, 30); // tốc độ gõ chữ (ms)
+      setTimeout(typeGreeting, 60); // tốc độ gõ chữ (ms)
     } else {
       // Khi gõ xong, xóa cursor và hiển thị bó hoa, sau đó hiển thị nút "Tiếp tục"
       greetingTextElem.innerHTML = greetingMessage;
