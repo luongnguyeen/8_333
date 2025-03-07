@@ -162,12 +162,12 @@ body {
 
 /* Nút chuyển giao diện */
 .next-button {
-  padding: 10px 20px;
+  padding: 1px 1px;
   font-size: 1.2rem;
   background-color: #e74c3c;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 2px;
   cursor: pointer;
   margin-bottom: 20px;
   transition: background-color 0.3s;
