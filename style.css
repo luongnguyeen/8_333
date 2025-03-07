@@ -190,7 +190,6 @@ body {
 }
 #photo-next-button {
   display: block;
-  width: 20vw /* hoặc kích thước bạn mong muốn */
   max-width: 100px;
   height: auto;
   cursor: pointer;
