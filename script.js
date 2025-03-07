@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const cube = document.querySelector(".cube");
   
   // Lời chúc được hiển thị theo kiểu gõ chữ có cursor nhấp nháy
-  const greetingMessage = "Úm ba...la...ra..gì đây 😁 Chúc Emmm 8/3 zuiii zẻ & thật ý nghĩa. Chúc Emmm lun chân cứng, đá mềm, đường xa ko mỏi...Mong Em sẽ luôn là 1 cô bé Moew đầy năng lượng & cười nhiều hơn nhó. Dù đôi lúc a đã làm e buồn. Nhưng a mong là nỗi buồn duy nhất của E chỉ là buồn ngủ💪";
+  const greetingMessage = "Úm ba...la...ra..gì đây 😁 Chúc Emmm 8/3 zuiii zẻ & thật ý nghĩa. Chúc Emmm lun chân cứng, đá mềm, đường xa ko mỏi...Mong Em sẽ lun là một cô bé Moew đầy năng lượng & cười nhiều hơn nhó. Dù đôi lúc a đã làm e buồn. Nhưng a mong là nỗi buồn duy nhất của E chỉ là buồn ngủ💪";
   let index = 0;
   
   // Ẩn các phần ban đầu
