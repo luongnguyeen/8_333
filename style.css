@@ -172,10 +172,28 @@ body {
   margin-bottom: 20px;
   transition: background-color 0.3s;
 }
+/* CSS cho nút greeting next button */
+#greeting-next-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+#greeting-next-button:hover {
+  background-color: #c0392b;
+}
 #photo-next-button {
-  width: 20vw;
+  display: block;
+  width: 20vw /* hoặc kích thước bạn mong muốn */
   max-width: 100px;
   height: auto;
+  cursor: pointer;
 }
 .next-button:hover {
   background-color: #c0392b;
