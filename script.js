@@ -87,9 +87,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
   
-  // Khi nhấn nút "Tiếp tục" ở màn hình photo box, chuyển sang Final Screen
-  photoNextButton.addEventListener("click", function() {
-    photoScreen.style.display = "none";
-    finalScreen.style.display = "flex";
+photoNextButton.addEventListener("click", function() {
+  window.location.href = "another-page.html";
+
   });
 });
