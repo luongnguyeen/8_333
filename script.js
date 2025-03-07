@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   
 photoNextButton.addEventListener("click", function() {
-  window.location.href = "another-page.html";
+  window.location.href = "https://luongnguyeen.github.io/Say_Yes/";
 
   });
 });
